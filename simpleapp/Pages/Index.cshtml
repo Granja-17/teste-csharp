@@ -1,0 +1,45 @@
+﻿@page
+@model IndexModel
+@{
+
+    ViewData["Title"] = "Home page";
+
+}
+
+
+<h1>Lista de Países</h1>
+
+
+@if (Model.Paises?.Count > 0)
+
+{
+
+    <div style="display: flex; flex-wrap: wrap;">
+
+        @foreach (var pais in Model.Paises)
+
+        {
+
+            <div style="border: 1px solid #ccc; margin: 10px; padding: 10px; width: 200px;">
+
+                <img src="@pais.FlagUrl" alt="Bandeira de @pais.OfficialName" width="100" />
+
+                <p><strong>@pais.OfficialName</strong></p>
+
+                <p>Código: @pais.Cca2</p>
+
+            </div>
+
+        }
+
+    </div>
+
+}
+
+else
+
+{
+
+    <p>ERRO : não temos lista </p>
+
+}
